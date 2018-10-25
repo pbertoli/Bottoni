@@ -6,23 +6,21 @@ import javax.swing.JTextField;
 
 public class RispondiAInvio implements ActionListener {
 
-    JTextField t1, t2, t3;
+    Bottoni frame; 
 
-    public RispondiAInvio(JTextField t1, JTextField t2, JTextField t3) {
-        this.t1 = t1;
-        this.t2 = t2;
-        this.t3 = t3;
+    public RispondiAInvio(Bottoni frame) {
+        this.frame=frame;
     }
 
     public void actionPerformed(ActionEvent e) {
-        Object o = e.getSource();
-        if (t1 == o) {
-            System.out.println("Sono t1");
-        } else if (t2==o)
-            System.out.println("Sono t2");
-        else if (t3==o)
-            System.out.println("Sono t3");
+        Object t = e.getSource();
+        if (t == frame.getT1()) {
+            System.out.println("Sono JTextField1 "+e.getActionCommand());
+        } else if (t == frame.getT2())
+            System.out.println("Sono JTextField2 "+e.getActionCommand());
+        else if (t == frame.getT3())
+            System.out.println("Sono JTextField3 "+e.getActionCommand());
         else
-            System.out.println("Non so chi sono");
+            System.out.println("Non so chi sono "+e.getActionCommand());
     }
 }
